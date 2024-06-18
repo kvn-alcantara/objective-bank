@@ -17,7 +17,7 @@ services:
     ports:
       - "9003:9003"
     volumes:
-      - ../src:/var/www
+      - ../:/var/www
       - ./local.ini:/usr/local/etc/php/conf.d/local.ini
   nginx:
     image: nginx:1.19-alpine
@@ -26,7 +26,7 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - ../src:/var/www
+      - ../:/var/www
       - ./nginx:/etc/nginx/conf.d
   db:
     container_name: objective-bank-db
