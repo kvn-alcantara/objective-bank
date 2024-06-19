@@ -19,7 +19,10 @@
         }
     ],
     "scripts": {
-        "test": "phpunit"
+        "test": "phpunit",
+        "migrations:migrate": "vendor/bin/doctrine-migrations migrate",
+        "migrations:generate": "vendor/bin/doctrine-migrations generate",
+        "migrations:rollback": "vendor/bin/doctrine-migrations migrate first"
     },
     "config": {
         "sort-packages": true,
@@ -28,8 +31,10 @@
     "require": {
         "ext-json": "*",
         "ext-pdo": "*",
+        "doctrine/migrations": "^3.7",
+        "slim/psr7": "^1.7",
         "slim/slim": "4.*",
-        "slim/psr7": "^1.7"
+        "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.5"
