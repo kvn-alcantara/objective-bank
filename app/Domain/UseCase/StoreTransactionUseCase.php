@@ -10,6 +10,7 @@ use App\Infra\Repository\Account\AccountRepositoryContract;
 use App\Infra\Repository\PaymentMethod\PaymentMethodRepositoryContract;
 use App\Infra\Repository\Transaction\TransactionRepositoryContract;
 use App\Main\Utils;
+use DomainException;
 
 class StoreTransactionUseCase
 {
@@ -21,7 +22,7 @@ class StoreTransactionUseCase
     }
 
     /**
-     * @throws \Exception
+     * @throws DomainException
      */
     public function handle(array $data): array
     {
