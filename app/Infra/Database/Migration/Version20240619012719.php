@@ -18,6 +18,7 @@ final class Version20240619012719 extends AbstractMigration
         $table->addColumn('amount', 'decimal', ['precision' => 10, 'scale' => 2, 'notnull' => true]);
         $table->addColumn('payment_method_acronym', 'string', ['length' => 1, 'notnull' => true]);
         $table->addColumn('payment_method_tax', 'decimal', ['precision' => 10, 'scale' => 2, 'notnull' => true]);
+        $table->addColumn('balance', 'decimal', ['precision' => 10, 'scale' => 2, 'notnull' => true]);
         $table->addColumn('created_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP', 'notnull' => true]);
 
         $table->setPrimaryKey(['id']);
