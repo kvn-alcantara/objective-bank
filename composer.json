@@ -1,5 +1,6 @@
 {
     "name": "kevin/objective-bank",
+    "description": "Objective Bank API",
     "type": "project",
     "license": "MIT",
     "autoload": {
