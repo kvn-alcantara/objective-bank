@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\Application\Action;
 
-use App\Domain\Exception\DomainAccountDuplicatedException;
-use App\Domain\Exception\DomainRecordDuplicatedException;
 use App\Domain\Exception\DomainRecordNotFoundException;
+use App\Domain\Exception\DomainRecordDuplicatedException;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Exception\HttpBadRequestException;
@@ -31,7 +30,7 @@ abstract class Action
             return $this->perform();
         } catch (DomainRecordNotFoundException $e) {
             throw new HttpNotFoundException($this->request, $e->getMessage());
-        } catch (DomainAccountDuplicatedException $e) {
+        } catch (DomainRecordDuplicatedException $e) {
             throw new HttpBadRequestException($this->request, $e->getMessage());
         }
     }

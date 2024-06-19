@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Main\Factory\Application\Action;
 
-use App\Application\Action\StoreAccountAction;
+use App\Application\Action\Account\StoreAccountAction;
 use App\Main\Factory\Domain\UseCase\StoreAccountUseCaseFactory;
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;

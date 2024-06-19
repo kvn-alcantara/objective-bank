@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\UseCase;
 
-use App\Domain\Exception\DomainAccountDuplicatedException;
+use App\Domain\Exception\DomainRecordDuplicatedException;
 use App\Infra\Repository\Account\AccountRepositoryContract;
 
 class StoreAccountUseCase
@@ -21,7 +21,7 @@ class StoreAccountUseCase
         $exists = $this->accountRepository->findByNumber((string)$data['numero_conta']);
 
         if ($exists) {
-            throw new DomainAccountDuplicatedException();
+            throw new DomainRecordDuplicatedException();
         }
 
         $this->accountRepository->create($data);
