@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Action;
 
+use App\Domain\Exception\DomainNegativeBalanceException;
 use App\Domain\Exception\DomainRecordNotFoundException;
 use App\Domain\Exception\DomainRecordDuplicatedException;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -28,7 +29,7 @@ abstract class Action
     {
         try {
             return $this->perform();
-        } catch (DomainRecordNotFoundException $e) {
+        } catch (DomainRecordNotFoundException | DomainNegativeBalanceException $e) {
             throw new HttpNotFoundException($this->request, $e->getMessage());
         } catch (DomainRecordDuplicatedException $e) {
             throw new HttpBadRequestException($this->request, $e->getMessage());

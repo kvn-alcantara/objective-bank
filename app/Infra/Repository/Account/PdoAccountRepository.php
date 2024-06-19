@@ -30,4 +30,13 @@ class PdoAccountRepository implements AccountRepositoryContract
 
         return $stmt->fetch() ?: null;
     }
+
+    /**
+     * @throws \PDOException
+     */
+    public function updateBalance(int $id, float $balance): bool
+    {
+        $stmt = $this->db->prepare('UPDATE accounts SET balance = ? WHERE id = ?');
+        return $stmt->execute([$balance, $id]);
+    }
 }
