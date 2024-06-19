@@ -1,6 +1,7 @@
 # objective-bank
 ### Requisitos
 - Docker e Docker Compose
+- Composer
 
 ### Rodando o projeto
 Copiar `.env.example` e renomear para `.env`:
