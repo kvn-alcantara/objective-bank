@@ -14,7 +14,7 @@ class ShowAccountUseCase
     }
 
     /**
-     * @throws \Exception
+     * @throws DomainException
      */
     public function handle(string $number): array
     {
@@ -26,7 +26,7 @@ class ShowAccountUseCase
 
         return [
             'numero_conta' => (int)$account['number'],
-            'saldo' => (float) $account['balance']
+            'saldo' => (float)$account['balance']
         ];
     }
 }

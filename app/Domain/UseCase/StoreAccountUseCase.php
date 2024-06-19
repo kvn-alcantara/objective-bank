@@ -14,7 +14,7 @@ class StoreAccountUseCase
     }
 
     /**
-     * @throws \Exception
+     * @throws DomainException
      */
     public function handle(array $data): array
     {
