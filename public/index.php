@@ -1,16 +1,26 @@
 <?php
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+declare(strict_types=1);
+
+use App\Application\Handler\HttpErrorHandler;
 use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$app = AppFactory::create();
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 
-$app->get('/', function (Request $request, Response $response, $args) {
-    $response->getBody()->write("Hello world!");
-    return $response;
-});
+$app = AppFactory::create();
+$callableResolver = $app->getCallableResolver();
+$app->addBodyParsingMiddleware();
+
+$routes = require __DIR__ . '/../routes/api.php';
+$routes($app);
+
+$responseFactory = $app->getResponseFactory();
+$errorHandler = new HttpErrorHandler($callableResolver, $responseFactory);
+
+$errorMiddleware = $app->addErrorMiddleware((bool)$_ENV['DEBUG'], true, true);
+$errorMiddleware->setDefaultErrorHandler($errorHandler);
 
 $app->run();

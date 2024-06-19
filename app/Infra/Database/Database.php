@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace App\Infra\Database;
 
 use PDO;
+use PDOException;
 
-class Connection
+class Database
 {
     private static $instance;
 
+    /**
+     * @throws PDOException
+     */
     public static function getInstance(): PDO
     {
         if (is_null(self::$instance)) {
@@ -20,11 +24,12 @@ class Connection
                     $_ENV['DB_PASS'],
                     [
                         PDO::ATTR_EMULATE_PREPARES => false,
+                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                     ]
                 );
-            } catch (\PDOException $e) {
-                throw new \PDOException($e->getMessage(), (int) $e->getCode());
+            } catch (PDOException $e) {
+                throw new PDOException($e->getMessage(), (int) $e->getCode());
             }
         }
 
