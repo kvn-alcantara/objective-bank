@@ -10,7 +10,7 @@ return [
     ],
 
     'migrations_paths' => [
-        'Infra\Database\Migrations' => '/app/Infra/Database/Migrations',
+        'App\Infra\Database\Migration' => '/app/Infra/Database/Migration',
     ],
 
     'all_or_nothing' => true,

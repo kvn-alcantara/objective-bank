@@ -7,6 +7,6 @@ return [
     'dbname' => $_ENV['DB_NAME'],
     'user' => $_ENV['DB_USER'],
     'password' => $_ENV['DB_PASS'],
-    'host' => $_ENV['DB_HOST'],
+    'host' => '0.0.0.0',
     'driver' => 'pdo_mysql',
 ];
