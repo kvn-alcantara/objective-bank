@@ -11,6 +11,6 @@ class StoreAccountUseCaseFactory
 {
     public static function make(): StoreAccountUseCase
     {
-        return new StoreAccountUseCase((new AccountRepositoryFactory())->make());
+        return new StoreAccountUseCase(AccountRepositoryFactory::make());
     }
 }
