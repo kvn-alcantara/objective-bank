@@ -36,5 +36,6 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: objective_bank
     ports:
       - "3306:3306"
