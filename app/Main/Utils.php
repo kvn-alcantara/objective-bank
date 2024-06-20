@@ -6,12 +6,12 @@ namespace App\Main;
 
 class Utils
 {
-    public static function dolarToCents(float $dolar): int
+    public static function dollarToCents(float $dolar): int
     {
         return (int) ($dolar * 100);
     }
 
-    public static function centsToDolar(int $cents): float
+    public static function centsToDollar(int $cents): float
     {
         return $cents / 100;
     }

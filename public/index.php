@@ -20,7 +20,7 @@ $routes($app);
 $responseFactory = $app->getResponseFactory();
 $errorHandler = new HttpErrorHandler($callableResolver, $responseFactory);
 
-$errorMiddleware = $app->addErrorMiddleware((bool)$_ENV['DEBUG'], true, true);
+$errorMiddleware = $app->addErrorMiddleware(false, true, true);
 $errorMiddleware->setDefaultErrorHandler($errorHandler);
 
 $app->run();

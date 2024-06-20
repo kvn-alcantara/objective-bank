@@ -38,13 +38,13 @@ class StoreTransactionUseCase
             throw new DomainRecordNotFoundException();
         }
 
-        $operation = array_map(fn($value) => Utils::dolarToCents((float)$value), [
+        $operation = array_map(fn($value) => Utils::dollarToCents((float)$value), [
             'balance' => $account['balance'],
             'amount' => $data['valor'],
             'tax' => $data['valor'] * $paymentMethod['tax']
         ]);
 
-        $newBalance = Utils::centsToDolar($operation['balance'] - ($operation['amount'] + $operation['tax']));
+        $newBalance = Utils::centsToDollar($operation['balance'] - ($operation['amount'] + $operation['tax']));
 
         if ($newBalance < 0) {
             throw new DomainNegativeBalanceException();

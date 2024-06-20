@@ -11,6 +11,6 @@ class ShowAccountUseCaseFactory
 {
     public static function make(): ShowAccountUseCase
     {
-        return new ShowAccountUseCase((new AccountRepositoryFactory())->make());
+        return new ShowAccountUseCase(AccountRepositoryFactory::make());
     }
 }

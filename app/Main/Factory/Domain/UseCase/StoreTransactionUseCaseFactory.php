@@ -14,9 +14,9 @@ class StoreTransactionUseCaseFactory
     public static function make(): StoreTransactionUseCase
     {
         return new StoreTransactionUseCase(
-            (new AccountRepositoryFactory())->make(),
-            (new TransactionRepositoryFactory())->make(),
-            (new PaymentMethodRepositoryFactory())->make()
+            AccountRepositoryFactory::make(),
+            TransactionRepositoryFactory::make(),
+            PaymentMethodRepositoryFactory::make()
         );
     }
 }

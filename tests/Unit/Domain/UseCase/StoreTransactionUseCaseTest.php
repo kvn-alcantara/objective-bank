@@ -27,7 +27,7 @@ class StoreTransactionUseCaseTest extends TestCase
         ]);
 
         $paymentRepoMock->method('findByAcronym')->willReturn([
-            'payment_acronym' => 'D',
+            'acronym' => 'D',
             'tax' => 0.03
         ]);
 
@@ -108,7 +108,7 @@ class StoreTransactionUseCaseTest extends TestCase
         ]);
 
         $paymentRepoMock->method('findByAcronym')->willReturn([
-            'payment_acronym' => 'D',
+            'acronym' => 'D',
             'tax' => 0.03
         ]);
 
