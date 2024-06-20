@@ -9,17 +9,17 @@ Copiar `.env.example` e renomear para `.env`:
 cp .env.example .env
 ```
 
-Navegue ate a pasta `/docker` e rode o comando para subir os containers:
+Instalar dependências:
+```sh
+composer install
+```
+
+Navegue ate a pasta `/docker` e suba os containers:
 ```sh
 docker compose up -d
 ```
 
-Com os containes rodando, criar banco de dados:
-```sh
-docker exec -i objective-bank-db mysql -uroot -proot  <<< "create database objective_bank;"
-```
-
-Rode as migrations:
+Executar migrations:
 ```sh
 composer migrations:migrate
 ```

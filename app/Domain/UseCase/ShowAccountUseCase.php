@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\UseCase;
 
+use App\Domain\Exception\DomainException;
 use App\Domain\Exception\DomainRecordNotFoundException;
 use App\Infra\Repository\Account\AccountRepositoryContract;
 
